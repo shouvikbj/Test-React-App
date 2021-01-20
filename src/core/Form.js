@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import Base from "./Base";
 
 import { api } from "../Backend";
@@ -55,13 +55,15 @@ const Form = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     var form = document.getElementById("myForm");
-    fetch(submitUrl, { method: "POST", body: new FormData(form) }).then(
-      (data) => {
-        console.log(data);
-        form.reset();
-        setRedirect(true);
-      }
-    );
+    fetch(submitUrl, {
+      method: "POST",
+      body: new FormData(form),
+      mode: "cors",
+    }).then((data) => {
+      console.log(data);
+      form.reset();
+      setRedirect(true);
+    });
   };
 
   const redirectToHome = () => {
