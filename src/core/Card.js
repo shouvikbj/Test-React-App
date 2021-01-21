@@ -1,5 +1,6 @@
 import React from "react";
 import ImageHelper from "./helper/ImageHelper";
+import LazyLoad from "react-lazyload";
 
 const Card = ({ detail }) => {
   return (

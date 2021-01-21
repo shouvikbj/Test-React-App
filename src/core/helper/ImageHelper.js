@@ -1,5 +1,7 @@
 import React from "react";
 // import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const ImageHelper = ({ detail }) => {
   const imageurl = detail.image
@@ -9,12 +11,13 @@ const ImageHelper = ({ detail }) => {
   return (
     <div className="">
       <a href={imageurl}>
-        <img
+        <LazyLoadImage
           id="imageHelper"
           src={imageurl}
           style={{ maxHeight: "100%", maxWidth: "100%" }}
           className="mb-1"
-          alt=""
+          alt="image"
+          effect="blur"
         />
       </a>
     </div>
