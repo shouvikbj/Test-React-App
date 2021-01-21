@@ -3,7 +3,7 @@ import ImageHelper from "./helper/ImageHelper";
 
 const Card = ({ detail }) => {
   return (
-    <div className="card m-2 bg-light" style={{ width: "18rem" }}>
+    <div className="card m-3" style={{ maxWidth: "30rem" }}>
       <ImageHelper detail={detail} />
       <div className="card-body">
         <h5 className="card-title text-primary">{detail.title}</h5>

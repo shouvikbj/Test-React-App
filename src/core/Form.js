@@ -19,7 +19,7 @@ const Form = () => {
           <div className="mx-auto">
             <form id="myForm" onSubmit={handleSubmit}>
               <div className="mb-3">
-                <label className="form-label">Title</label>
+                <label className="form-label text-white">Title</label>
                 <input
                   type="title"
                   className="form-control"
@@ -30,7 +30,7 @@ const Form = () => {
                 />
               </div>
               <div className="mb-3">
-                <label className="form-label">Text</label>
+                <label className="form-label text-white">Text</label>
                 <input
                   type="text"
                   className="form-control"
@@ -75,7 +75,7 @@ const Form = () => {
       <br />
       <br />
       <br />
-      <h1 className="text-center text-success">Add Data</h1>
+      <h1 className="text-center text-white">Add Data</h1>
       {viewForm()}
       {redirect ? redirectToHome() : ""}
     </Base>

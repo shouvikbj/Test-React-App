@@ -65,7 +65,7 @@ const Home = () => {
       <br />
       <br />
       <br />
-      <h1 className="text-center text-success">Home Component</h1>
+      <h1 className="text-center text-white">Home Component</h1>
       <br />
       {error ? showError() : loadContent()}
       <br />
