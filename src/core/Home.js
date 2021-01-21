@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
-import LazyLoad from "react-lazyload";
+// import LazyLoad from "react-lazyload";
 
 import Base from "./Base";
 import { getDetails } from "./helper/coreapicalls";
@@ -53,15 +53,9 @@ const Home = () => {
           <div className="row">
             {details.map((detail, index) => {
               return (
-                <LazyLoad
-                  height={200}
-                  offset={100}
-                  once
-                  key={detail.id}
-                  className="mx-auto"
-                >
+                <div className="mx-auto">
                   <Card detail={detail} />
-                </LazyLoad>
+                </div>
               );
             })}
           </div>
