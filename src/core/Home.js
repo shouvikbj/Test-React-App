@@ -8,6 +8,7 @@ import Card from "./Card";
 const Home = () => {
   const [details, setDetails] = useState([]);
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const loadAllDetails = () => {
     getDetails()
@@ -18,6 +19,7 @@ const Home = () => {
           data.reverse();
           setDetails(data);
           setError(false);
+          setLoading(false);
         }
       })
       .catch((err) => {
@@ -33,15 +35,30 @@ const Home = () => {
   const loadContent = () => {
     return (
       <div className="container">
-        <div className="row">
-          {details.map((detail, index) => {
-            return (
-              <div key={detail.id} className="mx-auto">
-                <Card detail={detail} />
-              </div>
-            );
-          })}
-        </div>
+        {loading ? (
+          <div class="text-center">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <div class="spinner-grow text-warning" role="status">
+              <span class="visually-hidden"></span>
+            </div>
+          </div>
+        ) : (
+          <div className="row">
+            {details.map((detail, index) => {
+              return (
+                <div key={detail.id} className="mx-auto">
+                  <Card detail={detail} />
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     );
   };
