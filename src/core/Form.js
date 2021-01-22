@@ -45,7 +45,9 @@ const Form = () => {
                 />
               </div>
               <div className="mb-3">
-                <label className="form-label text-white">Image</label>
+                <label className="form-label text-white">
+                  Image (optional)
+                </label>
                 <input
                   type="file"
                   className="form-control"
