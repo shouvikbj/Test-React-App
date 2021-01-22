@@ -83,7 +83,7 @@ const Home = () => {
       <br />
       <br />
       <br />
-      <h1 className="text-center text-white">Home Component</h1>
+      <h2 className="text-center text-white">Home</h2>
       <br />
       {error ? showError() : loadContent()}
       <br />

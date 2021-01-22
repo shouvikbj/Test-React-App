@@ -14,6 +14,7 @@ const ImageHelper = ({ detail }) => {
         <LazyLoadImage
           id="imageHelper"
           src={imageurl}
+          placeholderSrc={imageurl}
           style={{ maxHeight: "100%", maxWidth: "100%" }}
           className="mb-1"
           alt="image"
