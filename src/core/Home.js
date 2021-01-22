@@ -71,7 +71,7 @@ const Home = () => {
         <br />
         <br />
         <br />
-        <h4 className="text-danger">
+        <h4 className="text-warning">
           <span className="align-middle">Something went wrong!</span>
         </h4>
       </div>

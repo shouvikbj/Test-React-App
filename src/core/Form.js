@@ -17,7 +17,11 @@ const Form = () => {
         <br />
         <div className="row">
           <div className="mx-auto">
-            <form id="myForm" onSubmit={handleSubmit}>
+            <form
+              id="myForm"
+              onSubmit={handleSubmit}
+              enctype="multipart/form-data"
+            >
               <div className="mb-3">
                 <label className="form-label text-white">Title</label>
                 <input
@@ -38,6 +42,16 @@ const Form = () => {
                   name="text"
                   placeholder="add text"
                   required
+                />
+              </div>
+              <div className="mb-3">
+                <label className="form-label text-white">Image</label>
+                <input
+                  type="file"
+                  className="form-control"
+                  id="image"
+                  name="image"
+                  accept="image"
                 />
               </div>
               <div className="text-right">
