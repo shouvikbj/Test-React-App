@@ -1,13 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Navbar = () => {
+  const [auth, setAuth] = useState(false);
   const [nav, setNav] = useState({
     navbarState: false,
     navbarClass: "collapse navbar-collapse",
   });
 
   const { navbarState, navbarClass } = nav;
+
+  const getAuthStatus = () => {
+    const userName = Cookies.get("userName");
+    if (userName) {
+      setAuth(true);
+      return true;
+    }
+  };
 
   const myToggler = () => {
     navbarState
@@ -22,6 +34,16 @@ const Navbar = () => {
           navbarClass: "collapse navbar-collapse show",
         });
   };
+
+  const handleLogout = () => {
+    Cookies.remove("userName");
+    toast("Logged out!", { type: "info" });
+    window.location.reload();
+  };
+
+  useEffect(() => {
+    getAuthStatus();
+  }, []);
 
   return (
     <div>
@@ -38,9 +60,20 @@ const Navbar = () => {
               <Link className="nav-link" to="/">
                 Home
               </Link>
-              <Link className="nav-link" to="/form">
-                Add Data
-              </Link>
+              {auth ? (
+                <Link className="nav-link" to="/form">
+                  Add Data
+                </Link>
+              ) : (
+                ""
+              )}
+              {auth ? (
+                <Link className="nav-link" onClick={handleLogout}>
+                  Logout
+                </Link>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </div>

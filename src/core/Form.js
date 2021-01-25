@@ -1,17 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
+import Cookies from "js-cookie";
 import Base from "./Base";
+import Login from "./Login";
 
 import { api } from "../Backend";
 
 const submitUrl = `${api}addData`;
 
 const Form = () => {
+  const [auth, setAuth] = useState(false);
   const [redirect, setRedirect] = useState(false);
+
+  const getAuthStatus = () => {
+    const userName = Cookies.get("userName");
+    if (userName) {
+      setAuth(true);
+      return true;
+    }
+  };
 
   const viewForm = () => {
     return (
       <div className="container">
+        <br />
+        <br />
+        <br />
+        <h1 className="text-center text-white">Add Data</h1>
         <br />
         <br />
         <br />
@@ -86,13 +101,17 @@ const Form = () => {
     return <Redirect to="/" />;
   };
 
+  const loadLoginPage = () => {
+    return <Login />;
+  };
+
+  useEffect(() => {
+    getAuthStatus();
+  }, []);
+
   return (
     <Base>
-      <br />
-      <br />
-      <br />
-      <h1 className="text-center text-white">Add Data</h1>
-      {viewForm()}
+      {auth ? viewForm() : loadLoginPage()}
       {redirect ? redirectToHome() : ""}
     </Base>
   );
