@@ -58,7 +58,7 @@ const Home = () => {
 
   const loadContent = () => {
     return (
-      <>
+      <div>
         <h2 className="text-center text-white">Home</h2>
         <br />
         <div className="container">
@@ -87,7 +87,7 @@ const Home = () => {
             </div>
           )}
         </div>
-      </>
+      </div>
     );
   };
 

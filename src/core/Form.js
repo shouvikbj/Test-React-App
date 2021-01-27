@@ -91,7 +91,7 @@ const Form = () => {
       body: new FormData(form),
       mode: "cors",
     }).then((data) => {
-      console.log(data);
+      // console.log(data);
       form.reset();
       setRedirect(true);
     });

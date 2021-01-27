@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from "./core/Home";
 import Form from "./core/Form";
+import Test from "./core/Test";
 
 const Routes = () => {
   return (
@@ -10,6 +11,7 @@ const Routes = () => {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/form" exact component={Form} />
+        <Route path="/test" exact component={Test} />
       </Switch>
     </Router>
   );
